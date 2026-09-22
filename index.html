@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comic Platform Clone</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Main Centered Container -->
+    <div class="app-container">
+        
+        <!-- Header / Navbar Section -->
+        <header class="main-header">
+            <div class="nav-left">
+                <button class="menu-btn">☰</button>
+                <div class="search-box">
+                    <span class="search-icon">🔍</span>
+                    <input type="text" placeholder="Search a series...">
+                </div>
+            </div>
+            <div class="nav-right">
+                <button class="login-btn">Log in</button>
+            </div>
+        </header>
+
+        <!-- Banner Showcase Section -->
+        <!-- Updated Banner Structure for Horizontal Sliding -->
+<section class="banner-section">
+    <div class="banner-slider">
+        <!-- Slide 1 -->
+        <div class="banner-slide">
+            <img src="https://placeholder.com" alt="Banner 1" class="banner-img">
+            <div class="banner-overlay">
+                <div class="banner-badge">HOT</div>
+                <h1 class="banner-title">MILF HUNTING IN ANOTHER WORLD</h1>
+            </div>
+        </div>
+        <!-- Slide 2 -->
+        <div class="banner-slide">
+            <img src="https://placeholder.com" alt="Banner 2" class="banner-img">
+            <div class="banner-overlay">
+                <div class="banner-badge">NEW</div>
+                <h1 class="banner-title">LOVE QUEST: CHAPTER 34 OUT NOW</h1>
+            </div>
+        </div>
+        <!-- Slide 3 -->
+        <div class="banner-slide">
+            <img src="https://placeholder.com" alt="Banner 3" class="banner-img">
+            <div class="banner-overlay">
+                <div class="banner-badge">TRENDING</div>
+                <h1 class="banner-title">MOBY DICK: RENEWED SEASON</h1>
+            </div>
+        </div>
+    </div>
+</section>
+
+        <!-- Announcements / Grid Section -->
+        <section class="announcements-grid">
+            <div class="announcement-card">
+                <h3>New Discord Server</h3>
+                <span class="date">08/25/2026</span>
+            </div>
+            <div class="announcement-card">
+                <h3>Subscribing with...</h3>
+                <span class="date">05/14/2026</span>
+            </div>
+            <div class="announcement-card">
+                <h3>How to get Early...</h3>
+                <span class="date">03/04/2026</span>
+            </div>
+        </section>
+
+        <!-- Horizontal Slide Show / Carousel Section -->
+        <section class="slideshow-section">
+    <div class="section-title">Trending Now</div>
+    <div class="slideshow-wrapper">
+        <div class="slideshow-container">
+            <!-- Card 1 (Faded side card) -->
+            <div class="slide-card">
+                <img src="https://placeholder.com" alt="Cover">
+                <div class="slide-overlay-text">
+                    <h3>Title One</h3>
+                    <p>Brief description goes here...</p>
+                </div>
+            </div>
+            <!-- Card 2 (Faded side card) -->
+            <div class="slide-card">
+                <img src="https://placeholder.com" alt="Cover">
+                <div class="slide-overlay-text">
+                    <h3>Title Two</h3>
+                    <p>Brief description goes here...</p>
+                </div>
+            </div>
+            <!-- Card 3 (The Highlighted Middle Card) -->
+            <div class="slide-card active">
+                <img src="https://placeholder.com" alt="Cover">
+                <div class="slide-overlay-text">
+                    <h3>Living with My Teacher!</h3>
+                    <p>Seohyun loses his place to live after falling victim to a rental deposit scam. Of all people...</p>
+                </div>
+            </div>
+            <!-- Card 4 (Faded side card) -->
+            <div class="slide-card">
+                <img src="https://placeholder.com" alt="Cover">
+                <div class="slide-overlay-text">
+                    <h3>Title Four</h3>
+                    <p>Brief description goes here...</p>
+                </div>
+            </div>
+            <!-- Card 5 (Faded side card) -->
+            <div class="slide-card">
+                <img src="https://placeholder.com" alt="Cover">
+                <div class="slide-overlay-text">
+                    <h3>Title Five</h3>
+                    <p>Brief description goes here...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+        </section>
+
+    </div>
+<!-- Add this JavaScript right before your </body> tag -->
+<script>
+    const slider = document.querySelector('.banner-slider');
+    const slides = document.querySelectorAll('.banner-slide');
+    let currentSlide = 0;
+
+    function nextSlide() {
+        // Increment the slide index, loop back to 0 if at the end
+        currentSlide = (currentSlide + 1) % slides.length;
+        
+        // Shift the container to the left by multiples of 100%
+        slider.style.transform = `translateX(-${currentSlide * 100}%)`;
+    }
+
+    // Automatically slide horizontally every 4 seconds
+    setInterval(nextSlide, 4000);
+
+    const cards = document.querySelectorAll('.slide-card');
+
+    cards.forEach(card => {
+        card.addEventListener('mouseenter', () => {
+            // Remove active class from all cards
+            cards.forEach(c => c.classList.remove('active'));
+            // Highlight the currently hovered card
+            card.classList.add('active');
+        });
+    });
+</script>
+</body>
+</html>
