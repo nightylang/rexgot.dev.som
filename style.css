@@ -1,0 +1,334 @@
+/* Base Reset & Theming */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* This creates the dark sides effect */
+body {
+    background-color: #0b0c0f; /* Deep dark background for the edges */
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+}
+
+/* Centered Colored Content Area */
+.app-container {
+    width: 100%;
+    max-width: 1200px; /* Limits the colored zone width */
+    background-color: #12131a; /* Slightly lighter dark for the content area */
+    min-height: 100vh;
+    padding: 0 20px 40px 20px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.7);
+}
+
+/* Header Styles */
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 1px solid #222531;
+}
+
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-grow: 1;
+    max-width: 500px;
+}
+
+.menu-btn {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.search-box {
+    position: relative;
+    width: 100%;
+}
+
+.search-box input {
+    width: 100%;
+    background-color: #1c1e27;
+    border: 1px solid #2d3142;
+    padding: 8px 12px 8px 35px;
+    border-radius: 4px;
+    color: #fff;
+    outline: none;
+}
+
+.search-icon {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 14px;
+    color: #6c727f;
+}
+
+.login-btn {
+    background: none;
+    border: none;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+
+
+.banner-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(18, 19, 26, 0.95));
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.banner-badge {
+    background-color: #ff3b30;
+    color: #fff;
+    font-size: 11px;
+    font-weight: bold;
+    padding: 3px 8px;
+    border-radius: 3px;
+    width: max-content;
+}
+
+.banner-title {
+    font-size: 24px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+}
+
+/* Announcement Micro-Cards */
+.announcements-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.announcement-card {
+    background-color: #1c1e27;
+    border: 1px solid #2d3142;
+    padding: 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.announcement-card:hover {
+    background-color: #242733;
+}
+
+.announcement-card h3 {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.announcement-card .date {
+    font-size: 11px;
+    color: #6c727f;
+}
+
+/* Slideshow / Horizontal Carousel */
+.slideshow-section {
+    margin-top: 30px;
+}
+
+.section-title {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: #e5e7eb;
+}
+
+.slideshow-container {
+    display: flex;
+    gap: 15px;
+    overflow-x: auto;
+    padding-bottom: 10px;
+}
+
+/* Hide scrollbar functionality but keep scrolling */
+.slideshow-container::-webkit-scrollbar {
+    height: 6px;
+}
+.slideshow-container::-webkit-scrollbar-thumb {
+    background-color: #2d3142;
+    border-radius: 3px;
+}
+
+.slide-card {
+    min-width: 160px;
+    flex: 0 0 auto;
+    position: relative;
+    border-radius: 6px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.slide-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.slide-card:hover img {
+    transform: scale(1.05);
+}
+
+.slide-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0,0,0,0.85));
+    padding: 10px;
+    font-size: 12px;
+    font-weight: 600;
+    text-align: center;
+      }
+  /* Updated Banner Layout for Animation */
+.banner-section {
+    margin-top: 20px;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+    height: 320px; /* Fixed height for stacking slides */
+}
+
+.banner-slider {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.banner-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0; /* Hidden by default */
+    visibility: hidden;
+    transition: opacity 0.8s ease-in-out, visibility 0.8s; /* Smooth fade animation */
+    z-index: 1;
+}
+
+/* When Javascript applies the active class, fade the slide in */
+.banner-slide.active {
+    opacity: 1;
+    visibility: visible;
+    z-index: 2;
+}
+
+.banner-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Container adjustments to allow centering elements */
+.slideshow-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    padding: 20px 0;
+}
+
+.slideshow-container {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    justify-content: center;
+    width: max-content;
+    margin: 0 auto;
+}
+
+/* Base Card Style (Default state is Darkened and Small) */
+.slide-card {
+    position: relative;
+    width: 180px;
+    height: 260px;
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    transform: scale(0.92); /* Slightly smaller than active card */
+    filter: brightness(0.3) grayscale(0.5); /* Makes them dark and desaturated */
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), 
+                filter 0.4s ease, 
+                box-shadow 0.4s ease;
+}
+
+.slide-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Highlighted Middle State (Triggered by .active class) */
+.slide-card.active {
+    transform: scale(1.05); /* Scales upward */
+    filter: brightness(1) grayscale(0); /* Restores full vivid colors */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+    z-index: 10;
+}
+
+/* Text Overlay Block inside the card */
+.slide-overlay-text {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.95) 40%, rgba(0, 0, 0, 0.6) 70%, transparent);
+    padding: 15px 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    opacity: 0; /* Hidden on background items */
+    transform: translateY(10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Only reveal text block descriptive content on the active middle card */
+.slide-card.active .slide-overlay-text {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.slide-overlay-text h3 {
+    font-size: 13px;
+    font-weight: 700;
+    color: #ffffff;
+    text-align: center;
+}
+
+.slide-overlay-text p {
+    font-size: 10px;
+    color: #a0a5b5;
+    line-height: 1.4;
+    text-align: center;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* Truncates description at two lines */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+      
